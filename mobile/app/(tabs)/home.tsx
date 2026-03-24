@@ -1,9 +1,15 @@
-import { Text, View } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Home</Text>
+      <Text>Login riuscito. Ora l'app respira davvero 🔥</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  title: { fontSize: 28, fontWeight: "700", marginBottom: 12 },
+});

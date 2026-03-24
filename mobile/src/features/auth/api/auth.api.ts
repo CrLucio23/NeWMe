@@ -1,26 +1,15 @@
-import { apiFetch } from "@/src/lib/api";
+import { api } from "../../../lib/api";
 
-type RegisterPayload = {
-  name: string;
-  email: string;
-  password: string;
+export const loginRequest = async (email: string, password: string) => {
+  const response = await api.post("/auth/login", { email, password });
+  return response.data;
 };
 
-type LoginPayload = {
-  email: string;
-  password: string;
-};
-
-export const authApi = {
-  register: (payload: RegisterPayload) =>
-    apiFetch("/auth/register", {
-      method: "POST",
-      body: JSON.stringify(payload),
-    }),
-
-  login: (payload: LoginPayload) =>
-    apiFetch("/auth/login", {
-      method: "POST",
-      body: JSON.stringify(payload),
-    }),
+export const registerRequest = async (
+  name: string,
+  email: string,
+  password: string
+) => {
+  const response = await api.post("/auth/register", { name, email, password });
+  return response.data;
 };
